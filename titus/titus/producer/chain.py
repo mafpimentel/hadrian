@@ -453,7 +453,7 @@ def ast(pfas, check=True, name=None, randseed=None, doc=None, version=None, meta
                               [x.replace(lazyFcnReplacer) for x in expr.body],     # this is the one place where we should pass down fcnReplacer rather than self
                               expr.pos)
             elif isinstance(expr, FcnRef):
-                return FcnRef(prefixFcnRef(i, pfa, expr.name), epxr.pos)
+                return FcnRef(prefixFcnRef(i, pfa, expr.name), expr.pos)
             elif isinstance(expr, FcnRefFill):
                 return FcnRefFill(prefixFcnRef(i, pfa, expr.name),
                                   dict((k, v.replace(self)) for k, v in expr.fill.items()),
